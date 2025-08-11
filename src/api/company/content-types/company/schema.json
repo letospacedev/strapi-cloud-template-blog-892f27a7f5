@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "companies",
+  "info": {
+    "singularName": "company",
+    "pluralName": "companies",
+    "displayName": "Company"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CompanyID": {
+      "type": "uid",
+      "targetField": ""
+    },
+    "CompanyName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "CompanyWebsite": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "\\b((?:https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*)\\b"
+    },
+    "LinkedInProfile": {
+      "type": "string",
+      "required": false,
+      "regex": "^https?:\\/\\/(www\\.)?linkedin\\.com\\/in\\/[a-zA-Z0-9-_%]+\\/?$"
+    },
+    "Founded": {
+      "type": "string",
+      "regex": "^(19|20)\\d{2}$"
+    },
+    "CompanyDescription": {
+      "type": "text"
+    },
+    "Employees": {
+      "type": "enumeration",
+      "enum": [
+        "a. 1-10",
+        "b. 11-50",
+        "c. 51-100",
+        "d. 101-250",
+        "e. 251-500",
+        "f. 501-1000",
+        "g. 1001-5000",
+        "h. 5001-10000",
+        "i. 10000+"
+      ]
+    },
+    "CompanyLogo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "solutions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::solution.solution",
+      "mappedBy": "company"
+    }
+  }
+}

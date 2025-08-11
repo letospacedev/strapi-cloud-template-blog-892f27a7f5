@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "solutions",
+  "info": {
+    "singularName": "solution",
+    "pluralName": "solutions",
+    "displayName": "Solution"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SolutionDescriptionRichJSON": {
+      "type": "blocks"
+    },
+    "SolutionName": {
+      "type": "string",
+      "required": true
+    },
+    "SolutionDescription": {
+      "type": "text"
+    },
+    "AdditionalDescription": {
+      "type": "text"
+    },
+    "SolutionImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "ImageSlider": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "SolutionDescriptionRich": {
+      "type": "richtext"
+    },
+    "SolutionID": {
+      "type": "uid",
+      "targetField": ""
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company.company",
+      "inversedBy": "solutions"
+    }
+  }
+}
